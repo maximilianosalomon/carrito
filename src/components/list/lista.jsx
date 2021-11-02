@@ -1,95 +1,44 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ClickAwayListener from "@mui/material/ClickAwayListener";
-import Grow from "@mui/material/Grow";
-import Paper from "@mui/material/Paper";
-import Popper from "@mui/material/Popper";
+import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import MenuList from "@mui/material/MenuList";
 
-const options = ["Categoria A", "Categoria B", "Categoria C"];
-
-export default function ListaCategorias() {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(3);
-
-  const handleClick = () => {
-    console.info(`You clicked ${options[selectedIndex]}`);
+export default function ListCategorias() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
-
-  const handleMenuItemClick = (event, index) => {
-    setSelectedIndex(index);
-    setOpen(false);
-  };
-
-  const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen(false);
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
-    <React.Fragment>
-      <ButtonGroup
+    <div>
+      <Button
+        id="basic-button"
+        color="secondary"
         variant="contained"
-        ref={anchorRef}
-        aria-label="split button"
+        aria-controls="basic-menu"
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
       >
-        <Button onClick={handleClick}>Categorias</Button>
-        <Button
-          size="small"
-          aria-controls={open ? "split-button-menu" : undefined}
-          aria-expanded={open ? "true" : undefined}
-          aria-label="select merge strategy"
-          aria-haspopup="menu"
-          onClick={handleToggle}
-        >
-          <ArrowDropDownIcon />
-        </Button>
-      </ButtonGroup>
-      <Popper
+        Categorias
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
         open={open}
-        anchorEl={anchorRef.current}
-        role={undefined}
-        transition
-        disablePortal
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
       >
-        {({ TransitionProps, placement }) => (
-          <Grow
-            {...TransitionProps}
-            style={{
-              transformOrigin:
-                placement === "bottom" ? "center top" : "center bottom",
-            }}
-          >
-            <Paper>
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList id="split-button-menu">
-                  {options.map((option, index) => (
-                    <MenuItem
-                      key={option}
-                      //   disabled={index === 2}
-                      selected={index === selectedIndex}
-                      onClick={(event) => handleMenuItemClick(event, index)}
-                    >
-                      {option}
-                    </MenuItem>
-                  ))}
-                </MenuList>
-              </ClickAwayListener>
-            </Paper>
-          </Grow>
-        )}
-      </Popper>
-    </React.Fragment>
+        <MenuItem onClick={handleClose}>Categoria A</MenuItem>
+        <MenuItem onClick={handleClose}>Categoria B</MenuItem>
+        <MenuItem onClick={handleClose}>Categoria C</MenuItem>
+      </Menu>
+    </div>
   );
 }

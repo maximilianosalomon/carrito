@@ -21,7 +21,12 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            component="div"
+            align="left"
+            sx={{ flexGrow: 1 }}
+          >
             Mi Tienda
           </Typography>
           <ListaCategorias />
