@@ -5,7 +5,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ListaCategorias from "../list/lista";
+import ListaCategorias from "../list/Lista";
+import CartWidget from "../cartwidget/CartWidget";
 
 export default function ButtonAppBar() {
   return (
@@ -29,7 +30,20 @@ export default function ButtonAppBar() {
           >
             Mi Tienda
           </Typography>
+          {/* boton de categorias */}
           <ListaCategorias />
+
+          {/* boton carro */}
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="cart"
+            align="center"
+            sx={{ ml: 1 }}
+          >
+            <CartWidget />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </Box>
