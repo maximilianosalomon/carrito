@@ -1,11 +1,7 @@
-// Original
 import "./App.css";
+import Navbar from "./components/Navbar";
+import ItemListContainer from "./components/ItemListContainer";
 
-// a
-import Navbar from "./components/navbar/Navbar";
-// import ItemListContainer from "./components/itemlistcontainer/ItemListContainer";
-
-//navbar
 export default App;
 
 function App() {
@@ -15,16 +11,8 @@ function App() {
         <Navbar />
       </div>
       <div>
-        <ItemListContainer />
+        <ItemListContainer greeting="Bienvenidos" />
       </div>
     </header>
-  );
-}
-
-function ItemListContainer() {
-  return (
-    <div>
-      <p align="center">Item List Container</p>
-    </div>
   );
 }

@@ -5,8 +5,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import ListaCategorias from "../list/Lista";
-import CartWidget from "../cartwidget/CartWidget";
+import ListaCategorias from "./ListaCategorias";
+import CartWidget from "./CartWidget";
 
 export default function ButtonAppBar() {
   return (
