@@ -56,13 +56,13 @@ const ItemListContainer = ({ greeting }) => {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    // setTimeout(() => {
-    myPromise
-      .then((respuesta) => {
-        setProductos(respuesta);
-      })
-      .catch((error) => alert("Error:", error));
-    // }, 2000);
+    setTimeout(() => {
+      myPromise
+        .then((respuesta) => {
+          setProductos(respuesta);
+        })
+        .catch((error) => alert("Error:", error));
+    }, 2000);
   }, []);
 
   const myPromise = new Promise((resolve, reject) => {
