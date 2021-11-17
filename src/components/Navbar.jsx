@@ -30,10 +30,8 @@ export default function ButtonAppBar() {
           >
             Mi Tienda
           </Typography>
-          {/* boton de categorias */}
           <ListaCategorias />
 
-          {/* boton carro */}
           <IconButton
             size="large"
             edge="start"

@@ -1,4 +1,4 @@
-import { Alert } from "@mui/material";
+//import { Alert } from "@mui/material";
 import { useState } from "react";
 
 const ItemCount = ({ stock, initial }) => {
@@ -34,7 +34,7 @@ const ItemCount = ({ stock, initial }) => {
       alert(`Se agregaron ${count} productos al carrito`);
     }
     stock = stock - count;
-    console.log(`stock: ${stock}`);
+    // console.log(`stock: ${stock}`);
   };
 
   return (
