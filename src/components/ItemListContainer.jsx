@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
-
 const ItemListContainer = ({ greeting }) => {
   const data = [
     {
