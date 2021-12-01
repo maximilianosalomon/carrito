@@ -1,5 +1,5 @@
 const ItemDetail = (props) => {
-  const { title, price, description, stock, id } = props.prod;
+  const { title, price, description, stock, id } = props.item;
   return (
     <div>
       <h3>Soy ItemDetail</h3>
