@@ -1,10 +1,10 @@
 // import axios from "axios";
 import { useState, useEffect } from "react";
-// import Link from "react-router-dom";
+import { Link } from "react-router-dom";
 import getProducts from "../services/MyPromise";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
-import ItemDetailContainer from "./ItemDetailContainer";
+// import ItemDetailContainer from "./ItemDetailContainer";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
@@ -19,13 +19,13 @@ const ItemListContainer = ({ greeting }) => {
 
   return (
     <div align="center">
-      <p>Item List Container</p>
-      <p>{greeting}</p>
-      {/* <Link>
-        <h1>About</h1>
-      </Link> */}
+      <h1>{greeting}</h1>
+      <h2>Soy Item List Container</h2>
+      <Link to="about">
+        <h4>About</h4>
+      </Link>
       <ItemCount stock={5} initial={1} />
-      <ItemDetailContainer />
+      {/* <ItemDetailContainer /> */}
       <ItemList products={products} />
     </div>
   );
